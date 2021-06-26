@@ -1,3 +1,4 @@
+import './header.css';
 import React, { Component } from 'react';
 import Nav from './nav';
 import Title from './title';

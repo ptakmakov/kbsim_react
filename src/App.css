@@ -18,39 +18,10 @@
     margin-top: auto;
 }
 
-.Page-nav {
-    padding: .25rem 0;
-    float: right;
-}
-
-.Page-nav .nav-link{
-    border-bottom: .25rem solid transparent;
-}
-
-.Page-nav .active{
-    border-bottom-color: #ffffff;
-}
-
 .Page-header {
     float: left;
 }
 
-.nav-link{
-    font-size: 1.17em;
-    font-weight: bold;
-    text-decoration: none;
-    margin: .25rem;
-    border-bottom: .25rem solid;
-}
-
-.nav-link:visited{
-    color: #a0a0a0;
-}
-
-.nav-link:hover{
-    color: #ffffff;
-}
-
-.nav-link:active {
-    color: #ffffff;
+.white-space {
+    min-width: 2em;
 }
