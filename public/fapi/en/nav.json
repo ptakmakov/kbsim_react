@@ -1,0 +1,4 @@
+[
+    {"hash":"#about", "title":"About Keyboard simulator", "module":"About"},
+    {"hash":"#simulator", "title":"Keyboard simulator", "module":"KeyboardSimulator"}
+]

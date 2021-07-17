@@ -1,0 +1,12 @@
+[
+    {
+        "lang": "en",
+        "icon":"/images/en.png",
+        "isDefault":true
+    },
+    {
+        "lang": "ru",
+        "icon":"/images/ru.png",
+        "isDefault":false
+    }
+]

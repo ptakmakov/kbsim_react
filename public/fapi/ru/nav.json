@@ -1,0 +1,4 @@
+[
+    {"hash":"#about", "title":"Про клавиатурный симулятор", "module":"About"},
+    {"hash":"#simulator", "title":"Клавиатурный симулятор", "module":"KeyboardSimulator"}
+]

@@ -3,12 +3,21 @@ import React, { Component } from 'react';
 import Header from './app/header/';
 import Main from './app/main/';
 import Footer from './app/footer/';
+import Loader from './app/loader';
+
+
+
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.handleHashChange = this.handleHashChange.bind(this);
-        this.state = { hash: (window.location.hash) ? window.location.hash : '#about' };
+        this.state = {
+            hash: (window.location.hash) ? window.location.hash : '#about',
+            isReady: true,
+            languages: null,
+            exception: null
+        };
     }
 
     handleHashChange(e) {
@@ -17,6 +26,7 @@ class App extends Component {
     }
 
     componentDidMount() {
+
         window.addEventListener("hashchange", this.handleHashChange, false);
     }
 
@@ -26,11 +36,20 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">
-                <Header hash={this.state.hash} />
-                <Main hash={this.state.hash} />
-                <Footer />
-            </div>
+            <Loader location="./fapi/languages.json">
+                {({ json, isReady, exception }) => {
+                    if(!isReady) return <div className="App">loading...</div>
+                    if(exception) return <div className="App">{exception.message}</div>
+                    return (
+                        <div className="App">
+                            <Header hash={this.state.hash} languages={json} />
+                            <Main hash={this.state.hash} languages={json} />
+                            <Footer />
+                            <p>{JSON.stringify(json)}</p>
+                        </div>
+                    )
+                }}
+            </Loader>
         );
     }
 }

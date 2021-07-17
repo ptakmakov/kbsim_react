@@ -8,7 +8,7 @@ class Nav extends Component{
     }
 
     isActive(hash) {
-        return (this.props.hash===hash) ? 'nav-link active' : 'nav-link';
+        return 'nav-link ' + ((this.props.hash===hash) ?  'active' : 'visited');
     }
 
     setLanguage(e){

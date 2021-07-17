@@ -14,16 +14,16 @@
     border-bottom-color: #ffffff;
 }
 
+.Page-nav .visited{
+    color: #a0a0a0;
+}
+
 .nav-link{
     font-size: 1.17em;
     font-weight: bold;
     text-decoration: none;
     margin: .25rem;
     border-bottom: .25rem solid;
-}
-
-.nav-link:visited{
-    color: #a0a0a0;
 }
 
 .nav-link:hover{
