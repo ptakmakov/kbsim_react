@@ -1,11 +1,11 @@
 [
     {
-        "lang": "en",
+        "language": "en",
         "icon":"/images/en.png",
         "isDefault":true
     },
     {
-        "lang": "ru",
+        "language": "ru",
         "icon":"/images/ru.png",
         "isDefault":false
     }

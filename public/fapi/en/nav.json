@@ -1,4 +1,4 @@
 [
-    {"hash":"#about", "title":"About Keyboard simulator", "module":"About"},
-    {"hash":"#simulator", "title":"Keyboard simulator", "module":"KeyboardSimulator"}
+    {"page":"about", "title":"About Keyboard simulator", "module":"About", "isDefault":true},
+    {"page":"simulator", "title":"Keyboard simulator", "module":"KeyboardSimulator", "isDefault":false}
 ]

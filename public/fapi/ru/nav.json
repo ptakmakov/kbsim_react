@@ -1,4 +1,4 @@
 [
-    {"hash":"#about", "title":"Про клавиатурный симулятор", "module":"About"},
-    {"hash":"#simulator", "title":"Клавиатурный симулятор", "module":"KeyboardSimulator"}
+    {"page":"about", "title":"Про клавиатурный симулятор", "module":"About", "isDefault": true},
+    {"page":"simulator", "title":"Клавиатурный симулятор", "module":"KeyboardSimulator", "isDefault":false}
 ]

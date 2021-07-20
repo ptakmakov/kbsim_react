@@ -1,40 +1,23 @@
-import {Component} from "react";
-
-class JSONLoader extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            json: null,
-            isReady: true,
-            exception: null,
-        };
-    }
-
-    componentDidMount(){
-        this.setState({isReady: false});
-
-        fetch(this.props.location)
-            .then(result => result.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        isReady: true,
-                        json: result
-                    });
-                },
-                (error) => {
-                    this.setState({
-                        isReady: true,
-                        exception: error
-                    })
+async function JSONLoader(query) {
+    let r = await fetch(query)
+        .then(result => result.json())
+        .then(
+            (result) => {
+                return {
+                    isReady: true,
+                    json: result,
+                    exception: null
                 }
-            );
-    }
-
-    render(){
-        console.log(this.state.json);
-        return this.props.children(this.state);
-    }
+            },
+            (error) => {
+                return {
+                    isReady: true,
+                    json: null,
+                    exception: error
+                }
+            }
+        );
+    return r;
 }
 
 export default JSONLoader;
