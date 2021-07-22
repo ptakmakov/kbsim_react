@@ -5,10 +5,12 @@ import Title from './title';
 
 class Header extends Component {
     render() {
+        const {page, pages } = this.props;
+        if(pages.length === 0) return <p>Loading...</p>
         return (
             <header className="App-header">
-                <Title/>
-                <Nav hash={this.props.hash}/>
+                <Title title={pages.filter(v => v.page === page)[0].title} />
+                <Nav page={page} />
             </header>
         );
     }

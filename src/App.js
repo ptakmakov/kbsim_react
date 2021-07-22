@@ -1,5 +1,5 @@
 import './App.css';
-import React, { Component } from 'react';
+import { Component } from 'react';
 import Header from './app/header/';
 import Main from './app/main/';
 import Footer from './app/footer/';
@@ -15,26 +15,44 @@ class App extends Component {
         super(props);
         this.state = {
             isReady: false,
-            languages: null,
-            exception: null,
             language: null,
-            page: 'about',
+            languages: [],
+            page: null,
+            pages: [],
+            exception: null,
         };
     }
 
     componentDidMount() {
-        //let ready = false;
         let path = new URL(window.location.href).pathname.split('/').filter((v) => v);
         let [language, page] = path;
-        console.log(language);
-        console.log(page);
         JSONLoader(apiURL + languagesURL)
             .then(
                 ({ isReady, json, exception }) => {
-                    console.log(json.filter(v => v.isDefault)[0].language);
-                    if (json.filter(v => v.language === language).length === 0) language = json.filter(v => v.isDefault)[0].language;
-                    this.setState({ languages: json, exception: exception, isReady: isReady, language: language, page: page });
-                    console.log(this.state);
+                    if (json.filter(v => v.language === language).length === 0)
+                        language = json.filter(v => v.isDefault)[0].language;
+                    this.setState({
+                        languages: json,
+                        exception: exception,
+                        isReady: isReady,
+                        language: language
+                    });
+                }
+            ).then(
+                () => {
+                    JSONLoader(apiURL + '/' + language + navURL)
+                        .then(
+                            ({ isReady, json, exception }) => {
+                                if (json.filter(v => v.page === page).length === 0)
+                                    page = json.filter(v => v.isDefault)[0].page;
+                                this.setState({
+                                    isReady: isReady,
+                                    pages: json,
+                                    page: page,
+                                    exception: exception
+                                });
+                            }
+                        );
                 }
             );
     }
@@ -43,13 +61,13 @@ class App extends Component {
     }
 
     render() {
-        const { isReady, languages, exception, language, page } = this.state;
+        const { isReady, languages, language, page, pages, exception } = this.state;
         if (!isReady) return <div className="App">loading...</div>
         if (exception) return <div className="App">{exception.message}</div>
         return (
             <div className="App">
-                <Header page={page} languages={languages} language={language} />
-                <Main page={page} languages={languages} language={language} />
+                <Header page={page} languages={languages} language={language} pages={pages} />
+                <Main page={page} languages={languages} language={language} pages={pages} />
                 <Footer />
                 <p>{JSON.stringify(languages)}</p>
             </div>
