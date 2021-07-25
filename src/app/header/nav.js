@@ -1,28 +1,26 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-class Nav extends Component{
-    constructor(props){
-        super(props);
-        this.setLanguage = this.setLanguage.bind(this);
-        this.state = {lang: 'en'};
-    }
-
-    isActive(hash) {
-        return 'nav-link ' + ((this.props.hash===hash) ?  'active' : 'visited');
-    }
-
-    setLanguage(e){
-        this.setState({lang: e.currentTarget.lang});
-    }
-
-    render(){
+class Nav extends Component {
+    render() {
+        const { page, pages, language, languages, isReady } = this.props;
+        if (!isReady) return <p>Loading...</p>
         return (
-            <nav className="Page-nav" lang={this.state.lang}>
-                <a className={this.isActive('#about')} href="#about">About</a>
-                <a className={this.isActive('#trainer')} href="#trainer">Trainer</a>
-                <div className="white-space"/>
-                <img className="lang-selector" src="/images/en.png" onClick={this.setLanguage} lang="en" alt="Change language to English"/>
-                <img className="lang-selector" src="/images/ru.png" onClick={this.setLanguage} lang="ru" alt="Сменить язык на Русский"/>
+            <nav className="Page-nav">
+                {
+                    pages.map(
+                        v => {
+                            return <a className={(v.page === page) ? 'nav-link active' : 'nav-link visited'} href={'/' + language + '/' + v.page}>{v.link}</a>
+                        }
+                    )
+                }
+                <div className="white-space" />
+                {
+                    languages.map(
+                        v => {
+                            return <a href={'/' + v.language + '/' + page}><img className={(v.language === language)?'lang-selector active': 'lang-selector'} src={v.icon} alt={v.alt} /></a>
+                        }
+                    )
+                }
             </nav>
         );
     }

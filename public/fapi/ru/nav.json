@@ -1,4 +1,4 @@
 [
-    {"page":"about", "title":"Про клавиатурный симулятор", "module":"About", "isDefault": true},
-    {"page":"simulator", "title":"Клавиатурный симулятор", "module":"KeyboardSimulator", "isDefault":false}
+    {"page":"about", "title":"Про клавиатурный симулятор", "link":"О симуляторе", "module":"About", "isDefault": true},
+    {"page":"simulator", "title":"Клавиатурный симулятор", "link":"Симулятор", "module":"KeyboardSimulator", "isDefault":false}
 ]

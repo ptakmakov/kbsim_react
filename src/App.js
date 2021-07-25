@@ -66,8 +66,8 @@ class App extends Component {
         if (exception) return <div className="App">{exception.message}</div>
         return (
             <div className="App">
-                <Header page={page} languages={languages} language={language} pages={pages} />
-                <Main page={page} languages={languages} language={language} pages={pages} />
+                <Header languages={languages} language={language} pages={pages} page={page} isReady={isReady} />
+                <Main languages={languages} language={language} pages={pages} page={page} isReady={isReady} />
                 <Footer />
                 <p>{JSON.stringify(languages)}</p>
             </div>
