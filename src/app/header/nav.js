@@ -17,7 +17,11 @@ class Nav extends Component {
                 {
                     languages.map(
                         v => {
-                            return <a href={'/' + v.language + '/' + page}><img className={(v.language === language)?'lang-selector active': 'lang-selector'} src={v.icon} alt={v.alt} /></a>
+                            return (
+                                <a href={'/' + v.language + '/' + page}>
+                                    <img className={(v.language === language) ? 'lang-selector active' : 'lang-selector'} src={v.icon} alt={v.alt} />
+                                </a>
+                            )
                         }
                     )
                 }

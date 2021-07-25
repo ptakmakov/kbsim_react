@@ -7,7 +7,7 @@ class Main extends Component {
     // }
 
     render() {
-        return <main className="App-content">{this.props.hash}</main>;
+        return <main className="App-content">{this.props.page}</main>;
     }
 }
 
