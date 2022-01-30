@@ -1,0 +1,37 @@
+.Page-nav {
+    padding: .25rem 0;
+    float: right;
+    display: flex;
+    flex-direction: row;
+}
+
+.Page-nav .nav-link{
+    border-bottom: .25rem solid transparent;
+}
+
+.Page-nav .active{
+    color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+
+.Page-nav .visited{
+    color: #a0a0a0;
+}
+
+.nav-link{
+    font-size: 1.17em;
+    font-weight: bold;
+    text-decoration: none;
+    margin: .25rem;
+    border-bottom: .25rem solid;
+}
+
+.nav-link:hover{
+    border-bottom-color: #a0a0a0;
+}
+
+.lang-selector {
+    width: 1.5em;
+    height: 1.5em;
+    margin: .25rem;
+}

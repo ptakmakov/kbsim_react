@@ -1,0 +1,14 @@
+[
+    {
+        "language": "en",
+        "icon": "/images/en.png",
+        "isDefault": true,
+        "alt": "Change language to English"
+    },
+    {
+        "language": "ru",
+        "icon": "/images/ru.png",
+        "isDefault": false,
+        "alt": "Сменить язык на Русский"
+    }
+]

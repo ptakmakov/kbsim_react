@@ -1,0 +1,4 @@
+[
+    {"page":"about", "title":"About Keyboard simulator", "link":"About", "module":"About", "isDefault":true},
+    {"page":"simulator", "title":"Keyboard simulator", "link":"Simulator", "module":"KeyboardSimulator", "isDefault":false}
+]
